@@ -16,7 +16,9 @@ if [[ "$GOOS" != "$HOST_GOOS" || "$GOARCH" != "$HOST_GOARCH" ]]; then
   OUTPUT_DIR="local/bin/${KUBE_BUILD_PLATFORMS}"
   GOOS_GOARCH_UPPER="$(echo "${GOOS}_${GOARCH}" | tr '[:lower:]' '[:upper:]')"
   export "CC_FOR_${GOOS_GOARCH_UPPER}=${CC}"
-  export "CXX_FOR_${GOOS_GOARCH_UPPER}=${CXX}"
+  if [ -n "${CXX:-}" ]; then
+    export "CXX_FOR_${GOOS_GOARCH_UPPER}=${CXX}"
+  fi
 else
   OUTPUT_DIR=bin
 fi
