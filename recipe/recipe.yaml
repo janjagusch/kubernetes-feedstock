@@ -26,7 +26,6 @@ build:
   skip:
     - osx and not arm64
     - ppc64le
-    - aarch64
 
 outputs:
   - package:
@@ -51,8 +50,7 @@ outputs:
             - jq
     tests:
       - script:
-          - if: unix
-            then: bash ${{ RECIPE_DIR }}/client/test.sh
+          - kubectl --help
     about:
       license: Apache-2.0
       license_file:
@@ -85,8 +83,9 @@ outputs:
             - jq
     tests:
       - script:
-          - if: unix
-            then: bash ${{ RECIPE_DIR }}/node/test.sh
+          - kubeadm --help
+          - kubelet --help
+          - kube-proxy --help
     about:
       license: Apache-2.0
       license_file:
@@ -115,7 +114,10 @@ outputs:
         - ${{ pin_subpackage('kubernetes-node', exact=true) }}
     tests:
       - script:
-          - bash ${{ RECIPE_DIR }}/server/test.sh
+          - kube-apiserver --help
+          - kube-controller-manager --help
+          - kube-scheduler --help
+          - test -x "${PREFIX}/bin/mounter"
     about:
       license: Apache-2.0
       license_file: LICENSE

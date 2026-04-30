@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 set -euf
 
-if [[ "$GOOS" == "darwin" && "$GOARCH" == "arm64" ]]; then
-  # Makefile has its own setup for target/platform
-  export KUBE_BUILD_PLATFORMS=darwin/arm64
-  # Only binaries with host arch go to bin/
-  # to replicate go install behavior
+HOST_GOOS="$(go env GOHOSTOS)"
+HOST_GOARCH="$(go env GOHOSTARCH)"
+
+if [[ "$GOOS" != "$HOST_GOOS" || "$GOARCH" != "$HOST_GOARCH" ]]; then
+  # Cross-compile: Makefile has its own setup for target/platform
+  export KUBE_BUILD_PLATFORMS="${GOOS}/${GOARCH}"
+  # Only binaries with host arch go to bin/ (replicates go install behavior)
   OUTPUT_DIR="local/bin/${KUBE_BUILD_PLATFORMS}"
 else
   OUTPUT_DIR=bin
