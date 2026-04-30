@@ -16,14 +16,12 @@ if [[ "$GOOS" != "$HOST_GOOS" || "$GOARCH" != "$HOST_GOARCH" ]]; then
   export KUBE_BUILD_PLATFORMS="${GOOS}/${GOARCH}"
   # Only binaries with host arch go to bin/ (replicates go install behavior)
   OUTPUT_DIR="local/bin/${KUBE_BUILD_PLATFORMS}"
-  # cgo consults CC_FOR_${GOOS}_${GOARCH} when cross-compiling (falls
-  # back to `${GOARCH}-linux-gnu-gcc` — absent from the conda build env).
-  # Point it at the conda cross-compiler the activation scripts set up.
+  # hack/lib/golang.sh overrides CC on cross-compile from
+  # KUBE_${GOOS}_${GOARCH}_CC (default: e.g. aarch64-linux-gnu-gcc,
+  # absent from the conda build env). Point it at the conda
+  # cross-compiler the activation scripts set up.
   GOOS_GOARCH_UPPER="$(echo "${GOOS}_${GOARCH}" | tr '[:lower:]' '[:upper:]')"
-  export "CC_FOR_${GOOS_GOARCH_UPPER}=${CC}"
-  if [ -n "${CXX:-}" ]; then
-    export "CXX_FOR_${GOOS_GOARCH_UPPER}=${CXX}"
-  fi
+  export "KUBE_${GOOS_GOARCH_UPPER}_CC=${CC}"
 else
   OUTPUT_DIR=bin
 fi

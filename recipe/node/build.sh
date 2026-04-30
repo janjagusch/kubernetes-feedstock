@@ -14,11 +14,11 @@ HOST_GOARCH="$(go env GOHOSTARCH)"
 if [[ "$GOOS" != "$HOST_GOOS" || "$GOARCH" != "$HOST_GOARCH" ]]; then
   export KUBE_BUILD_PLATFORMS="${GOOS}/${GOARCH}"
   OUTPUT_DIR="local/bin/${KUBE_BUILD_PLATFORMS}"
+  # hack/lib/golang.sh reads KUBE_${GOOS}_${GOARCH}_CC on cross-compile;
+  # point it at the conda cross-compiler (default is aarch64-linux-gnu-gcc
+  # etc., which is not installed in the conda build env).
   GOOS_GOARCH_UPPER="$(echo "${GOOS}_${GOARCH}" | tr '[:lower:]' '[:upper:]')"
-  export "CC_FOR_${GOOS_GOARCH_UPPER}=${CC}"
-  if [ -n "${CXX:-}" ]; then
-    export "CXX_FOR_${GOOS_GOARCH_UPPER}=${CXX}"
-  fi
+  export "KUBE_${GOOS_GOARCH_UPPER}_CC=${CC}"
 else
   OUTPUT_DIR=bin
 fi
