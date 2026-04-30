@@ -14,6 +14,9 @@ HOST_GOARCH="$(go env GOHOSTARCH)"
 if [[ "$GOOS" != "$HOST_GOOS" || "$GOARCH" != "$HOST_GOARCH" ]]; then
   export KUBE_BUILD_PLATFORMS="${GOOS}/${GOARCH}"
   OUTPUT_DIR="local/bin/${KUBE_BUILD_PLATFORMS}"
+  GOOS_GOARCH_UPPER="$(echo "${GOOS}_${GOARCH}" | tr '[:lower:]' '[:upper:]')"
+  export "CC_FOR_${GOOS_GOARCH_UPPER}=${CC}"
+  export "CXX_FOR_${GOOS_GOARCH_UPPER}=${CXX}"
 else
   OUTPUT_DIR=bin
 fi
