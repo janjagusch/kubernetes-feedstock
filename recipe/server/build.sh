@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
+
+# hack/lib/init.sh needs bash >=4.2; macOS system bash is 3.2.
+# Re-exec under the build-env bash if we were launched with an older one.
+if [ "${BASH_VERSINFO[0]:-0}" -lt 4 ] && [ -x "${BUILD_PREFIX}/bin/bash" ]; then
+  exec "${BUILD_PREFIX}/bin/bash" "$0" "$@"
+fi
+
 set -euf
 
 HOST_GOOS="$(go env GOHOSTOS)"
