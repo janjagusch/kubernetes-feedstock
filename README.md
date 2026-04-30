@@ -1,13 +1,13 @@
 About kubernetes-feedstock
 ==========================
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/kubernetes-feedstock/blob/main/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/main-feedstock/blob/main/LICENSE.txt)
 
 
 About kubernetes
 ----------------
 
-Home: https://www.kubernetes.io
+Home: https://www.kubernetes.io/
 
 Package license: Apache-2.0
 
@@ -15,47 +15,46 @@ Summary: Production-Grade Container Orchestration
 
 Development: https://github.com/kubernetes/kubernetes
 
-Documentation: https://docs.kubernetes.io
-
-About kubernetes
-----------------
-
-Home: https://www.kubernetes.io
-
-Package license: Apache-2.0
-
-Summary: Production-Grade Container Orchestration
-
-Development: https://github.com/kubernetes/kubernetes
-
-Documentation: https://docs.kubernetes.io
+Documentation: https://docs.kubernetes.io/
 
 About kubernetes-client
 -----------------------
 
-
+Home: https://www.kubernetes.io/
 
 Package license: Apache-2.0
 
 Summary: Kubernetes client binaries
 
+Development: https://github.com/kubernetes/kubernetes
+
+Documentation: https://docs.kubernetes.io/
+
 About kubernetes-node
 ---------------------
 
-
+Home: https://www.kubernetes.io/
 
 Package license: Apache-2.0
 
 Summary: Kubernetes node binaries
 
+Development: https://github.com/kubernetes/kubernetes
+
+Documentation: https://docs.kubernetes.io/
+
 About kubernetes-server
 -----------------------
 
-
+Home: https://www.kubernetes.io/
 
 Package license: Apache-2.0
 
 Summary: Kubernetes server binaries
+
+Development: https://github.com/kubernetes/kubernetes
+
+Documentation: https://docs.kubernetes.io/
 
 Current build status
 ====================
@@ -68,8 +67,8 @@ Current build status
     <td>
       <details>
         <summary>
-          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=507&branchName=main">
-            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/kubernetes-feedstock?branchName=main">
+          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=None&branchName=main">
+            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/main-feedstock?branchName=main">
           </a>
         </summary>
         <table>
@@ -77,22 +76,22 @@ Current build status
           <tbody><tr>
               <td>linux_64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=507&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/kubernetes-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=None&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/main-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_arm64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=507&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/kubernetes-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=None&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/main-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>win_64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=507&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/kubernetes-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=None&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/main-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -228,6 +227,7 @@ Feedstock Maintainers
 =====================
 
 * [@dhirschfeld](https://github.com/dhirschfeld/)
+* [@janjagusch](https://github.com/janjagusch/)
 * [@mxr-conda](https://github.com/mxr-conda/)
 * [@sodre](https://github.com/sodre/)
 
